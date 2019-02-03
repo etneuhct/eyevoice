@@ -9,9 +9,6 @@ class UploadImageForm(forms.ModelForm):
         model = StreamImageModel
         fields = ['frame', 'time', 'scene_id']
 
-class DownloadImageForm(forms.ModelForm):
+class DownloadImageForm(forms.Form):
 
-   class Meta:
-
-        model = StreamImageModel
-        fields = ['scene_id']
+   scene_id = forms.IntegerField()
