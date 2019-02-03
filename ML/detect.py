@@ -108,7 +108,7 @@ def count_people_video(model='ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_
               fps_sum += fps
             print_str = print_str +  " FPS is "+str(fps)+"."
           if(print_count or print_fps):
-            print(print_str
+            print(print_str)
             
           if(visual == True):
             cv2.imwrite("../../Previews/Preview"+str(j)+".jpg", img)
