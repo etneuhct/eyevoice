@@ -5,4 +5,4 @@ pillow
 google-cloud-storage
 django-storages
 tensorflow==1.12.0
-opencv3==3.4.3
+opencv-python==3.4.3
