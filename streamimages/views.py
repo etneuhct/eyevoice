@@ -7,7 +7,7 @@ from django.core.files.storage import get_storage_class
 from django.utils import timezone
 from django.utils.timezone import timedelta
 from django.utils.http import urlencode
-
+from django.http import JsonResponse
 from streamimages.forms import UploadImageForm, DownloadImageForm
 from streamimages.models import StreamImageModel
 # Create your views here.
@@ -74,4 +74,4 @@ class DownloadImageView(FormView):
     def form_valid(self, form):
         instance = StreamImageModel.objects.get(scene_id=self.request.POST["scene_id"])
         data = self.get_result_data(instance)
-        return HttpResponse(data, content_type="application/json")
+        return JsonResponse(data)
