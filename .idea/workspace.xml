@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="386d4413-a2ae-444f-bb9c-73834e31feda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/objectdetection/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/objectdetection/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="386d4413-a2ae-444f-bb9c-73834e31feda" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,11 +170,6 @@
               <item name="objectdetection" type="b2602c69:ProjectViewProjectNode" />
               <item name="objectdetection" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="objectdetection" type="b2602c69:ProjectViewProjectNode" />
-              <item name="objectdetection" type="462c0819:PsiDirectoryNode" />
-              <item name="objectdetection" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -251,16 +244,15 @@
       <option name="presentableId" value="Default" />
       <updated>1549136423739</updated>
       <workItem from="1549136425824" duration="10597000" />
-      <workItem from="1549150289085" duration="1311000" />
+      <workItem from="1549150289085" duration="1907000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11908000" />
+    <option name="totallyTimeSpent" value="12504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25349087" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
