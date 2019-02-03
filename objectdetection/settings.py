@@ -10,9 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os
+import os, environ
 import django_heroku
+import json
+from google.oauth2 import service_account
 
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+google_cloud_secret = os.environ.get('GOOGLE_GCS_JSON', default='')
+
+if not google_cloud_secret:
+
+    google_cloud_secret = os.environ.get('GOOGLE_GCS_FILE')
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_info(google_cloud_secret)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -117,3 +128,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
 
 django_heroku.settings(locals())
+
+GS_BUCKET_NAME = "eyevoice"
+GS_FILE_OVERWRITE = True

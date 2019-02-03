@@ -7,4 +7,4 @@ class StreamForm(forms.ModelForm):
    class Meta:
 
         model = StreamImageModel
-        fields = ['img', 'time', 'scene']
+        fields = ['frame', 'time', 'scene_id']
