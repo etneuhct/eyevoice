@@ -5,11 +5,10 @@ from streamimages.forms import StreamForm
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.forms import forms
-from django.core.files import storage
+from django.core.files.storage import get_storage_class
 from django.utils import timezone
 from django.utils.timezone import timedelta
 from django.utils.http import urlencode
-from streamimages.models import StreamImageModel
 # Create your views here.
 
 
@@ -26,7 +25,7 @@ def get_signed_url(fichier, expiration, methode, content_type):
         expiration (datetime.timedelta, int): durée de validité avant l'expiration du lien
         methode (str): méthode HTTP qui sera utilisé sur ce fichier
     """
-    GoogleCloudStorage = storage.get_storage_class()
+    GoogleCloudStorage = get_storage_class()
     gcs = GoogleCloudStorage()
     print('content-type: {}'.format(content_type))
     blob = gcs.bucket.get_blob(fichier.name)
@@ -64,7 +63,7 @@ class UploadImageView(FormView):
 class DownloadImageView(FormView):
     form_class = forms.Form
     template_name = r"streaming_template.html"
-    success_url = reverse_lazy("streaming")
+    success_url = reverse_lazy("download_image")
 
     def get_result_data(self, image):
         dowload_url : ""

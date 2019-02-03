@@ -20,5 +20,5 @@ from streamimages.views import UploadImageView
 urlpatterns = [
 url(r'^admin/', admin.site.urls),
 url(r"^upload_image/$", UploadImageView.as_view(), name="upload_image"),
-url(r"^retrieve_image/$", UploadImageView.as_view(), name="retrieve_image"),
+url(r"^retrieve_image/$", UploadImageView.as_view(), name="download_image"),
 ]

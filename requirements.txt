@@ -3,3 +3,4 @@ gunicorn
 django-heroku
 pillow
 google-cloud-storage
+django-storages

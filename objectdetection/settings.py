@@ -20,8 +20,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 google_cloud_secret = os.environ.get('GOOGLE_GCS_JSON', default='')
 
 if not google_cloud_secret:
-
-    google_cloud_secret = os.environ.get('GOOGLE_GCS_FILE')
+    with open(os.environ.get('GOOGLE_GCS_FILE'), 'r') as f:
+        google_cloud_secret = json.load(f)
 
 GS_CREDENTIALS = service_account.Credentials.from_service_account_info(google_cloud_secret)
 
@@ -38,7 +38,7 @@ SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be us
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'eyevoiceeye.herokuapp.com', "mysterious-fortress-78621.herokuapp.com/"]
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
