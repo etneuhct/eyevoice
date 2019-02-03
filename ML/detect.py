@@ -67,7 +67,7 @@ class DetectorAPI:
 
 def default_callback(frame_index, person_count): 
   str = frame_index + person_count
-def count_people(model='ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb', 
+def count_people_video(model='ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb', 
                  video='VID_20190202_190000.mp4', 
                  print_count=True, 
                  print_fps=True,
@@ -109,7 +109,8 @@ def count_people(model='ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.
               fps_sum += fps
             print_str = print_str +  " FPS is "+str(fps)+"."
           if(print_count or print_fps):
-            print(print_str)
+            print(print_str
+            
           if(visual == True):
             cv2.imwrite("../../Previews/Preview"+str(j)+".jpg", img)
             
