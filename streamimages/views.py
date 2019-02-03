@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.views.generic import FormView
-from streamimages.forms import StreamForm
 from django.urls import reverse_lazy
 from django.http import HttpResponse
-from django.forms import forms
 from django.core.files.storage import get_storage_class
 from django.utils import timezone
 from django.utils.timezone import timedelta
 from django.utils.http import urlencode
+
+from streamimages.forms import UploadImageForm, DownloadImageForm
+from streamimages.models import StreamImageModel
 # Create your views here.
 
 
@@ -45,7 +46,7 @@ def get_media_download_url(media):
     ])
 
 class UploadImageView(FormView):
-    form_class = StreamForm
+    form_class = UploadImageForm
     template_name = r"streaming_template.html"
     success_url = reverse_lazy("upload_image")
 
@@ -61,7 +62,7 @@ class UploadImageView(FormView):
         return HttpResponse(data, content_type="application/json")
 
 class DownloadImageView(FormView):
-    form_class = forms.Form
+    form_class = DownloadImageForm
     template_name = r"streaming_template.html"
     success_url = reverse_lazy("download_image")
 
@@ -72,6 +73,6 @@ class DownloadImageView(FormView):
             'download_url': dowload_url }
 
     def form_valid(self, form):
-        image = ""
-        data = self.get_result_data(image)
+        StreamImageModel.objects.get(scene_id=form["scene_id"])
+        data = self.get_result_data(form.instance)
         return HttpResponse(data, content_type="application/json")
