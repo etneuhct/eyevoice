@@ -59,7 +59,7 @@ class UploadImageView(FormView):
     def form_valid(self, form):
         form.save()
         data = self.get_result_data(form.instance)
-        return HttpResponse(data, content_type="application/json")
+        return JsonResponse(data)
 
 class DownloadImageView(FormView):
     form_class = DownloadImageForm
