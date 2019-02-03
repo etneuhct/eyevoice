@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from streamimages.views import UploadImageView
+from streamimages.views import UploadImageView, DownloadImageView
 
 urlpatterns = [
 url(r'^admin/', admin.site.urls),
 url(r"^upload_image/$", UploadImageView.as_view(), name="upload_image"),
-url(r"^retrieve_image/$", UploadImageView.as_view(), name="download_image"),
+url(r"^download_image/$", DownloadImageView.as_view(), name="download_image"),
 ]
