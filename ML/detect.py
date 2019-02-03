@@ -121,4 +121,4 @@ def count_people_video(model='ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_
   else:
     print("Can't open video.")
     
-count_people(every_n_frames=30, visual=True, print_fps=True)
+count_people_video(every_n_frames=30, visual=True, print_fps=True)

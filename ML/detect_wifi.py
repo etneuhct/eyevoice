@@ -67,58 +67,47 @@ class DetectorAPI:
 def default_callback(frame_index, person_count): 
   str = frame_index + person_count
 def count_people_video(model='ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb', 
-                 video='VID_20190202_190000.mp4', 
+                 video='http://10.1.3.142:4747/mjpegfeed?640x480', 
                  print_count=True, 
                  print_fps=True,
                  visual=True,
-                 every_n_frames=7,
-                 threshold=0.1,
-                 callback=default_callback):
+                 threshold=0.1):
   model_path = 'models/'+model
-  video_path = 'test_inputs/'+video
+  video_path = video
   odapi = DetectorAPI(path_to_ckpt=model_path)
   #cap = cv2.VideoCapture('/content/drive/My Drive/Photos/Google Photos/VID_20190101_195059.mp4')
   #cap = cv2.VideoCapture('/content/drive/My Drive/MOV_0011.mp4')
   cap = cv2.VideoCapture(video_path)
-  if (cap.isOpened()):
-    frames_tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    fps_sum = 0
+  while (cap.isOpened()):
     if(print_count == True):
-      print("Total frames: "+str(frames_tot))
-    for j in range(frames_tot):
         r, img = cap.read()
-        frame_n = int(cap.get(cv2.CAP_PROP_POS_FRAMES))
-        if frame_n % every_n_frames == 1: 
-          img = cv2.resize(img, (1280, 720))
+        if(r == True):
+            img = cv2.resize(img, (1280, 720))
 
-          boxes, scores, classes, num, elapsed_time = odapi.processFrame(img)
+            boxes, scores, classes, num, elapsed_time = odapi.processFrame(img)
 
-          boxcount = 0
-          for i in range(len(boxes)):
-              # Class 1 represents human
-              if classes[i] == 1 and scores[i] > threshold:
-                  boxcount += 1
-                  box = boxes[i]
-                  img = cv2.rectangle(img,(box[1],box[0]),(box[3],box[2]),(255,0,0),2)
-          if(print_count == True):
-            print_str = "Frame "+str(frame_n)+" has "+str(boxcount)+" people in it."
-          if(print_fps == True):
-            fps = 1/elapsed_time
-            if(frame_n != 1):
-              fps_sum += fps
-            print_str = print_str +  " FPS is "+str(fps)+"."
-          if(print_count or print_fps):
-            print(print_str)
+            boxcount = 0
+            for i in range(len(boxes)):
+                # Class 1 represents human
+                if classes[i] == 1 and scores[i] > threshold:
+                    boxcount += 1
+                    box = boxes[i]
+                    img = cv2.rectangle(img,(box[1],box[0]),(box[3],box[2]),(255,0,0),2)
+            if(print_count == True):
+                print_str = "Frame  has "+str(boxcount)+" people in it."
+            if(print_fps == True):
+                fps = 1/elapsed_time
+            if(print_count or print_fps):
+                print(print_str)
             
-          if(visual == True):
-            cv2.imwrite("../../Previews/Preview"+str(j)+".jpg", img)
-            
-          callback(frame_n, boxcount)
+            if(visual == True):
+                cv2.imshow("Preview", img)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+        else: 
+            break
           
-    fps_average = fps_sum/(math.ceil(frames_tot/every_n_frames)-1)
-    if(print_fps == True):
-      print("Average FPS: "+str(fps_average))
   else:
     print("Can't open video.")
     
-count_people(every_n_frames=30, visual=True, print_fps=True)
+count_people_video(visual=True, print_fps=True)
