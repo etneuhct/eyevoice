@@ -16,7 +16,6 @@ while (cap.isOpened()):
     n+=1
     cv2.imwrite(name, frame)
     if ret == True:
-        frame = cv2.flip(frame, 0)
         #on ajoute limage courante dans la video
         out.write(frame)
         #on l'affiche en temps reel
