@@ -67,7 +67,7 @@ class DetectorAPI:
 def default_callback(frame_index, person_count): 
   str = frame_index + person_count
 def count_people_video(model='ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_graph.pb', 
-                 video='http://10.1.3.142:4747/mjpegfeed?640x480', 
+                 video='http://10.1.2.155:4747/mjpegfeed?640x480', 
                  print_count=True, 
                  print_fps=True,
                  visual=True,
@@ -94,14 +94,14 @@ def count_people_video(model='ssd_mobilenet_v1_coco_2018_01_28/frozen_inference_
                     box = boxes[i]
                     img = cv2.rectangle(img,(box[1],box[0]),(box[3],box[2]),(255,0,0),2)
             if(print_count == True):
-                print_str = "Frame  has "+str(boxcount)+" people in it."
+                print_str = "Frame has "+str(boxcount)+" people in it."
             if(print_fps == True):
                 fps = 1/elapsed_time
             if(print_count or print_fps):
                 print(print_str)
             
             if(visual == True):
-                cv2.imshow("Preview", img)
+                cv2.imshow("Preview", cv2.resize(img, (640, 480)))
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
         else: 
