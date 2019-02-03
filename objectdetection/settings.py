@@ -17,7 +17,10 @@ from google.oauth2 import service_account
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
-google_cloud_secret = json.loads(os.environ.get('GOOGLE_GCS_JSON', default=''))
+try:
+    google_cloud_secret = json.loads(os.environ.get('GOOGLE_GCS_JSON', default=''))
+except ValueError:
+    google_cloud_secret = None
 
 if not google_cloud_secret:
     with open(os.environ.get('GOOGLE_GCS_FILE'), 'r') as f:

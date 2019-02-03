@@ -8,6 +8,6 @@ from django.db import models
 class StreamImageModel(models.Model):
 
     frame = models.ImageField(verbose_name='img', upload_to=r'streamimages/images', null=True, blank=True)
-    time = models.DateTimeField()
-    scene_id = models.IntegerField()
+    time = models.TimeField()
+    scene_id = models.IntegerField(unique=True)
     uri = models.URLField(blank=True, null=True)
