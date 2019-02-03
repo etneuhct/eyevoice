@@ -66,13 +66,12 @@ class DownloadImageView(FormView):
     template_name = r"streaming_template.html"
     success_url = reverse_lazy("download_image")
 
-    def get_result_data(self, image):
-        dowload_url : ""
+    def get_result_data(self, stream_image):
         return {
-            'scene_id': image.scene_id,
-            'download_url': dowload_url }
+            'scene_id': stream_image.scene_id,
+            'download_url': get_media_download_url(stream_image)}
 
     def form_valid(self, form):
-        StreamImageModel.objects.get(scene_id=self.request.POST["scene_id"])
-        data = self.get_result_data(form.instance)
+        instance = StreamImageModel.objects.get(scene_id=self.request.POST["scene_id"])
+        data = self.get_result_data(instance)
         return HttpResponse(data, content_type="application/json")
