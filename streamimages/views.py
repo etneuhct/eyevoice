@@ -73,6 +73,6 @@ class DownloadImageView(FormView):
             'download_url': dowload_url }
 
     def form_valid(self, form):
-        StreamImageModel.objects.get(scene_id=form["scene_id"])
+        StreamImageModel.objects.get(scene_id=self.request.POST["scene_id"])
         data = self.get_result_data(form.instance)
         return HttpResponse(data, content_type="application/json")
