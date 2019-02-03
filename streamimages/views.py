@@ -29,7 +29,7 @@ def get_signed_url(fichier, expiration, methode, content_type):
     GoogleCloudStorage = get_storage_class()
     gcs = GoogleCloudStorage()
     print('content-type: {}'.format(content_type))
-    blob = gcs.bucket.get_blob(fichier.name)
+    blob = gcs.bucket.get_blob(fichier.scene_id)
     if blob is None:
         raise FileDoesNotExist(file=fichier)
     return blob.generate_signed_url(

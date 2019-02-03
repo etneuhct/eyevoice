@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="386d4413-a2ae-444f-bb9c-73834e31feda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/objectdetection/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/objectdetection/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streamimages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/streamimages/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="386d4413-a2ae-444f-bb9c-73834e31feda" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/objectdetection/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="728">
+              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
               <folding>
                 <element signature="e#313#322#0" expanded="true" />
                 <element signature="e#942#1151#0" />
@@ -276,16 +273,15 @@
       <option name="presentableId" value="Default" />
       <updated>1549136423739</updated>
       <workItem from="1549136425824" duration="10597000" />
-      <workItem from="1549150289085" duration="28966000" />
+      <workItem from="1549150289085" duration="29665000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39563000" />
+    <option name="totallyTimeSpent" value="40262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25349087" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -489,8 +485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/objectdetection/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="728">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
           <folding>
             <element signature="e#313#322#0" expanded="true" />
             <element signature="e#942#1151#0" />
