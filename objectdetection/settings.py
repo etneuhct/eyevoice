@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os, environ
+import os
 import django_heroku
 import json
 from google.oauth2 import service_account
