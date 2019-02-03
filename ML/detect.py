@@ -12,9 +12,8 @@ import numpy as np
 import time
 import math
 
-# Code adapted from Tensorflow Object Detection Framework
-# https://github.com/tensorflow/models/blob/master/research/object_detection/object_detection_tutorial.ipynb
-# Tensorflow Object Detection Detector
+#Detector API based on tutorial https://medium.com/@madhawavidanapathirana/real-time-human-detection-in-computer-vision-part-2-c7eda27115c6 
+# who himself references https://gist.github.com/madhawav/1546a4b99c8313f06c0b2d7d7b4a09e2
 class DetectorAPI:
     def __init__(self, path_to_ckpt):
         self.path_to_ckpt = path_to_ckpt
